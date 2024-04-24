@@ -12,6 +12,20 @@ import java.util.List;
 public class ProductRepository {
     private final EntityManager em;
 
+    //상품 수정하기
+    public void updateById(Integer id, ProductRequest.UpdateDTO requestDTO) {
+        String q = """
+                update product_tb set name = ?, price = ?, qty = ? where id = ?
+                """;
+        Query query = em.createNativeQuery(q);
+        query.setParameter(1, requestDTO.getName());
+        query.setParameter(2, requestDTO.getPrice());
+        query.setParameter(3, requestDTO.getQty());
+        query.setParameter(4, id);
+        query.executeUpdate();
+
+    }
+
 
     //상품 상세보기
     public Product findById(Integer id) {

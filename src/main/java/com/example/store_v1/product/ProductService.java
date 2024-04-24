@@ -12,6 +12,20 @@ import java.util.stream.Collectors;
 public class ProductService {
     private final ProductRepository productRepo;
 
+    // 상품 업데이트
+    @Transactional
+    public void updateById(Integer id, ProductRequest.UpdateDTO requestDTO) {
+        productRepo.updateById(id, requestDTO);
+
+    }
+
+    //상품 업데이트 폼 보기
+    public Product findByIdUpdate(Integer id) {
+        Product product = productRepo.findById(id);
+        return product;
+    }
+
+
     //상품 리스트 목록 보기
     public List<Product> findAllList() {
         List<Product> productList = productRepo.findAll();
