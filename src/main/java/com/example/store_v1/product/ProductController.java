@@ -35,8 +35,11 @@ public class ProductController {
 
     //상품 상세보기
     @GetMapping("/product/{id}")
-    public String detail(@PathVariable Integer id) {
+    public String detail(@PathVariable Integer id, HttpServletRequest request) {
+        Product product = productService.findByIdDetail(id);
+        request.setAttribute("product", product);
 
+        System.out.println(product);
         return "/product/detail";
     }
 

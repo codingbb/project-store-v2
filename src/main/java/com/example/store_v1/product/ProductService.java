@@ -12,6 +12,13 @@ import java.util.stream.Collectors;
 public class ProductService {
     private final ProductRepository productRepo;
 
+
+    //상품 상세보기
+    public Product findByIdDetail(Integer id) {
+        Product product = productRepo.findById(id);
+        return product;
+    }
+
     //상품 등록
     @Transactional
     public void save(ProductRequest.SaveDTO requestDTO) {
