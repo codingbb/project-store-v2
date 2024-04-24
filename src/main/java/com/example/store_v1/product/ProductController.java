@@ -4,8 +4,14 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.UUID;
 
 
 @RequiredArgsConstructor
@@ -36,7 +42,8 @@ public class ProductController {
 
     // 상품 등록
     @PostMapping("/product/save")
-    public String save() {
+    public String save(ProductRequest.SaveDTO requestDTO) {
+        productService.save(requestDTO);
 
         return "redirect:/product";
     }
