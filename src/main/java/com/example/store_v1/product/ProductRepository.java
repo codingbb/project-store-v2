@@ -42,7 +42,7 @@ public class ProductRepository {
     //상품 목록보기
     public List<Product> findAll() {
         String q = """
-                select * from product_tb order by id asc 
+                select * from product_tb order by id desc 
                 """;
         Query query = em.createNativeQuery(q, Product.class);
         List<Product> productList = query.getResultList();

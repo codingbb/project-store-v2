@@ -28,7 +28,9 @@ public class ProductController {
 
     //상품 목록보기
     @GetMapping("/product")
-    public String listForm() {
+    public String listForm(HttpServletRequest request) {
+        List<Product> productList = productService.findAllList();
+        request.setAttribute("productList", productList);
 
         return "/product/list";
     }

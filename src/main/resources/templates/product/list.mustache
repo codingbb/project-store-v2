@@ -27,21 +27,21 @@
 
         <!--        상품 테이블-->
         <tbody>
-
+        {{#productList}}
             <tr class="offer-table">
-                <th scope="row">1</th>
-                <td>상품</td>
-                <td class="price">5000</td>
-                <td class="qty">1</td>
+                <th scope="row">{{indexNumb}}</th>
+                <td>{{name}}</td>
+                <td class="price">{{price}}</td>
+                <td class="qty">{{qty}}</td>
                 <td>
                     <div class="new-create-button">
-                        <form action="/product/1">
+                        <form action="/product/{{id}}">
                             <button type="submit" class="btn btn-outline-primary">상세보기</button>
                         </form>
                     </div>
                 </td>
             </tr>
-
+        {{/productList}}
         </tbody>
         <!--        상품 테이블 끝-->
 
