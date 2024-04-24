@@ -22,7 +22,9 @@ public class ProductController {
     //상품 삭제
     @PostMapping("/product/{id}/delete")
     public String deleteById(@PathVariable Integer id) {
-
+        productService.deleteById(id);
+        //product/list를 반환하는 컨트롤러 존재 -> redirect 할 것
+        //어려우면 PostMapping은 redirect로 준다고 생각하세요
         return "redirect:/product";
     }
 

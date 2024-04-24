@@ -12,6 +12,14 @@ import java.util.stream.Collectors;
 public class ProductService {
     private final ProductRepository productRepo;
 
+    //상품 삭제하기
+    @Transactional
+    public void deleteById(Integer id) {
+        //추후 delete 할 때, 존재하는지 확인하고 들어갈 것. 지금은 생략
+        productRepo.deleteById(id);
+    }
+
+
     // 상품 업데이트
     @Transactional
     public void updateById(Integer id, ProductRequest.UpdateDTO requestDTO) {
