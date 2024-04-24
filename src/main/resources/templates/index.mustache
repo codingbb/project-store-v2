@@ -20,25 +20,25 @@
     <br>
 
     <div class="row">
-
+        {{#productList}}
             <div class="col-md-4">
-                <a href="/product/1" style="text-decoration: none; color: inherit;">
+                <a href="/product/{{id}}" style="text-decoration: none; color: inherit;">
                     <div class="card mb-3">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="" width="300"
+                                <img src="/upload/{{imgFileName}}" width="300"
                                      height="300" style="border-radius: 5%">
                                 <div class="mt-3">
-                                    <h4>상품명</h4>
-                                    <div class="text-muted font-size-sm price">상품 가격 : 5000</div>
-                                    <div class="text-muted font-size-sm qty">상품 수량 : 1</div>
+                                    <h4>{{name}}</h4>
+                                    <div class="text-muted font-size-sm price">상품 가격 : {{price}}</div>
+                                    <div class="text-muted font-size-sm qty">상품 수량 : {{qty}}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
-
+        {{/productList}}
     </div>
 
     <ul class="pagination d-flex justify-content-center">
@@ -49,5 +49,6 @@
 </div>
 
 
+<script src="/js/index.js"></script>
 
 {{> /layout/footer}}

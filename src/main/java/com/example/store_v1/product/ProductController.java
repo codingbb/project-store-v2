@@ -1,8 +1,11 @@
 package com.example.store_v1.product;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RequiredArgsConstructor
@@ -63,8 +66,10 @@ public class ProductController {
 
 
     @GetMapping("/")
-    public String main() {
-
+    public String main(HttpServletRequest request) {
+        List<Product> productList = productService.findAllMain();
+        System.out.println(productList);
+        request.setAttribute("productList", productList);
         return "/index";
     }
 
