@@ -7,7 +7,7 @@
             <form id="productForm" action="/product/{{id}}/update" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="form-group mt-3 col-3" style="margin-left: 10%;">
-                        <img id="previewImg" src="" width="300" height="300" style="border-radius: 5%;">
+                        <img id="previewImg" src="/upload/{{product.imgFileName}}" width="300" height="300" style="border-radius: 5%;">
                         <div class="mt-3">
                             <input type="file" class="form-control" id="imgFile" name="imgFile" accept="image/*">
                         </div>
@@ -39,6 +39,8 @@
     </div>
 </div>
 
-
+<script src="/js/img-upload.js"></script>
+<script src="/js/name-check.js"></script>
+<script src="/js/detail.js"></script>
 
 {{> layout/footer}}
